@@ -12,7 +12,7 @@ const Navbar = () => {
       sessionStorage.removeItem('authToken');
 
       // Notify the backend to clear the cookie token
-      await axios.post('http://localhost:5000/api/auth/logout'); // Make sure your backend handles this route to clear the cookie
+      await axios.post('/api/auth/logout'); // Make sure your backend handles this route to clear the cookie
 
       // Redirect the user to the login page after logout
       navigate('/');
