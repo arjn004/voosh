@@ -21,7 +21,7 @@ const TaskBoard = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/tasks', {
+        const response = await axios.get('/api/tasks', {
           withCredentials: true,
         });
         console.log(response.data);
@@ -44,7 +44,7 @@ const TaskBoard = () => {
       }
 
       try {
-        const response = await axios.post('http://localhost:5000/api/tasks/search', { query: searchQuery }, {
+        const response = await axios.post('/api/tasks/search', { query: searchQuery }, {
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const TaskBoard = () => {
   const updateTaskStatus = async (taskId, newStatus) => {
     try {
       console.log(taskId);
-      const response = await axios.patch(`http://localhost:5000/api/tasks/status/${taskId}`, { status: newStatus }, {
+      const response = await axios.patch(`/api/tasks/status/${taskId}`, { status: newStatus }, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ const TaskBoard = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/tasks/add', newTask, {
+      const response = await axios.post('/api/tasks/add', newTask, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ const TaskBoard = () => {
     };
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/tasks/update/${task._id}`, updatedTask, {
+      const response = await axios.put(`/api/tasks/update/${task._id}`, updatedTask, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ const TaskBoard = () => {
 
   const handleDeleteTask = async (taskId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/delete/${taskId}`, {
+      await axios.delete(`/api/tasks/delete/${taskId}`, {
         withCredentials: true,
       });
       setTasks((prevTasks) => {
