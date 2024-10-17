@@ -17,7 +17,6 @@ const TaskItem = ({ task, onViewDetails, onDelete }) => {
     >
       <h4 className="font-bold">{task.taskName}</h4>
       <p>{task.taskDescription}</p>
-      <p className="text-sm">Created at: {task.date}</p>
       <div className="flex justify-between mt-4">
         <button
           onClick={() => onDelete(task._id, task.status)}
